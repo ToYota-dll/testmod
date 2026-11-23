@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="lastbreath"
+version="1.0.1"
+displayName="Last Breath"
+description='''Death as loss of consciousness: black screen, silence, tinnitus, auto-respawn after 30 seconds.'''
+
+[[dependencies.lastbreath]]
+modId="forge"
+mandatory=true
+versionRange="[47.3.0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.lastbreath]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"

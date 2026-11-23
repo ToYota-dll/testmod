@@ -1,0 +1,7 @@
+{
+  "tinnitus": {
+    "sounds": [
+      { "name": "lastbreath:tinnitus", "stream": false }
+    ]
+  }
+}

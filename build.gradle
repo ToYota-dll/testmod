@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+}
+
+version = '1.0.1'
+group = 'com.lastbreath'
+
+base {
+    archivesName = 'lastbreath-1.20.1'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.console.level', 'info'
+        }
+        client {
+            property 'mixin.env.remapRefMap', 'true'
+        }
+        server {
+            args '--nogui'
+        }
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+}
+
+tasks.named('jar', Jar).configure {
+    manifest.attributes([
+        'Specification-Title'   : 'lastbreath',
+        'Specification-Vendor'  : 'lastbreath',
+        'Specification-Version' : '1',
+        'Implementation-Title'  : 'lastbreath',
+        'Implementation-Version': project.version,
+        'Implementation-Vendor' : 'lastbreath'
+    ])
+    finalizedBy 'reobfJar'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
